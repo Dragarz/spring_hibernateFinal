@@ -9,13 +9,11 @@ public class Car {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "model")
     private String model;
 
-    @Column(name = "series")
     private int series;
 
-    @OneToOne(optional = false, mappedBy = "car")
+    @OneToOne(mappedBy = "car", cascade = CascadeType.ALL)
     private User user;
 
     public Car() {
